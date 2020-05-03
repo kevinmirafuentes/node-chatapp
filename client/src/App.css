@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.messages-board {
+  background: #ebebeb;
+  height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-end;
 }
-
-.App-link {
-  color: #61dafb;
+.message-form {
+  height: 80px;
+  display: flex;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.message {
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid #ebebeb;
+}
+.message-sender {
+  width: 80px;
+  padding: 10px;
+  flex-grow: 0;
+}
+.message-body {
+  width: 100%;
+  padding: 10px;
+}
+.message-form-input {
+  width: 100%;
+}
+.message-form-input textarea {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  resize: none;
+  outline: none;
+}
+.message-form-send {
+  width: 100px;
+}
+.message-form-send button { 
+  width: 100%;
+  height: 100%;
+  background: #2196f3;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #fff;
 }

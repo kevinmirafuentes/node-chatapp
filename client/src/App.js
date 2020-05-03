@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Message from './modules/messages/components/Message';
+import MessageForm from './modules/messages/components/MessageForm';
+
+export default class App extends Component {
+  state = {
+    messages: [
+      { sender: { name: 'john'}, contents: 'Lorem ipsum dolor sit amet.'},
+      { sender: { name: 'anna'}, contents: 'Lorem ipsum dolor sit amet.'},
+      { sender: { name: 'mike'}, contents: 'Lorem ipsum dolor sit amet.'},
+    ]
+  }
+  render() {
+    const messages = this.state.messages.map((message, key) => <Message key={key} message={message}></Message>)
+    return (
+      <div className="App">
+        <section className="messages-board">
+          { messages }
+        </section>
+        <MessageForm></MessageForm>
+      </div>
+    );
+  }
 }
 
-export default App;
