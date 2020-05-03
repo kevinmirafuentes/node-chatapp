@@ -1,5 +1,6 @@
 # Simple Chat Application - Server
 
+## Models
 Chatroom model
 - _id
 - created_at 

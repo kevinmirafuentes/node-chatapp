@@ -13,24 +13,10 @@ This is an excercise project using following technologies:
 
 ## Todo
 - [x] Server set up
-- [ ] DB model
-- [ ] Create messages list
-- [ ] Create form to send message
-- [ ] GET /api/messages
-- [ ] POST /api/messages
-
-
-client 
-  src
-    css
-    components
-      App.js
-      Message.js
-      MessageForm.js
-    containers
-      MessageBoard
-      MessageForm
-    reducers
-    constants
-
-
+- [ ] DB model using Mongoose
+- [x] Client page layout
+- [ ] Create chatroom
+- [ ] Join chatroom
+- [ ] List messages on chatroom
+- [ ] Create message
+- [ ] Chunk messages displayed
