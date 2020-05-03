@@ -1,11 +1,21 @@
 # Simple Chat Application - Server
 
-## Message model
+Chatroom model
+- _id
+- created_at 
+- updated_at
+
+Message model
+- _id
 - user_id (Text) - this is a unique id generated on users browser
+- chatroom_id (Text)
 - contents (Text)
 - created_at
 - updated_at
 
-
-/controllers  
-  messages.js 
+User model
+- _id
+- chatroom_id
+- name 
+- created_at
+- updated_at
