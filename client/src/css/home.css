@@ -1,0 +1,18 @@
+.chatroom-links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-top: 50px;
+  width: 300px;
+  transform: translateX(-50%);
+}
+.chatroom-links a {
+  padding: 10px;
+  text-align: center;
+  background: #2196f3;
+  color: #fff;
+  text-decoration: none;
+  margin: 5px 0;
+}

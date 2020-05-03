@@ -1,0 +1,21 @@
+.join-chatroom {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 300px;
+  left: 50%;
+  margin-top: 50px;
+  transform: translateX(-50%);
+}
+.join-chatroom input {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.join-chatroom button {
+  background: #2196F3;
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+}
