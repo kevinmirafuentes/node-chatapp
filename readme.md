@@ -1,7 +1,12 @@
 # Simple Chat Application
 
 A public chat app accessible to users of the app.
-Full stack set application using nodejs + reactjs + mongodb
+
+This is an excercise project using following technologies: 
+- NodeJS + Express
+- ReactJs
+- MongoDB
+- Redux
 
 ## Features
 - A user is idenfied by a cookie on the browser.
@@ -13,4 +18,19 @@ Full stack set application using nodejs + reactjs + mongodb
 - [ ] Create form to send message
 - [ ] GET /api/messages
 - [ ] POST /api/messages
+
+
+client 
+  src
+    css
+    components
+      App.js
+      Message.js
+      MessageForm.js
+    containers
+      MessageBoard
+      MessageForm
+    reducers
+    constants
+
 
