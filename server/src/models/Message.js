@@ -1,30 +1,17 @@
-const database = require('../database')
+const {Schema, model} = require('mongoose')
 
-class Message {
+const messageSchema = new Schema({
+  user_id: {
+    type: Schema.Types.ObjectId, 
+    ref: 'User',
+    required: true,
+  },
+  chatroom_id: {
+    type: Schema.Types.ObjectId, 
+    ref: 'Chatroom',
+    required: true,
+  },
+  contents: String,
+}, { timestamps: true })
 
-  constructor(data) {
-    if (data) {
-      this.id = data.id || null
-      this.contents = data.contents || null 
-      this.user_id = data.user_id || null
-    }
-  }
-
-  save() {
-    if (!this.id) {
-      this.insert(this)
-    }
-  }
-
-  insert(data) {
-    database.connect().then(client => {
-      client.collection('messages', {
-        user_id: data.user_id || null,
-        contents: data.contents || null,
-        date: new Date
-      })
-    })
-  }
-}
-
-module.exports = Message
+module.exports = model('Message', messageSchema)

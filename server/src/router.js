@@ -1,7 +1,8 @@
 const { Router } = require('express');
 const router = Router();
-const listMessagesController = require('./controllers/list-messages')
-const createMessageController = require('./controllers/create-message')
+const userController = require('./controllers/users')
+const messageController = require('./controllers/messages')
+const chatroomController =  require('./controllers/chatrooms')
 
 router.get('/', (req, res, next) => {
   res.status(200)
@@ -10,8 +11,10 @@ router.get('/', (req, res, next) => {
   })
 })
 
-router.get('/api/messages', listMessagesController)
-
-router.post('/api/messages', createMessageController)
+router.get('/api/messages', messageController.listMessages)
+router.post('/api/messages', messageController.createMessage)
+router.get('/api/users', userController.listUsers)
+router.post('/api/users', userController.createUser)
+router.post('/api/chatrooms', chatroomController.createChatroom)
 
 module.exports = router;

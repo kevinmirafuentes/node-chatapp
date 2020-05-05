@@ -1,8 +1,16 @@
 const express = require('express')
 const cors = require('cors')
-const middlewares = require('./middlewares')
 const router = require('./router')
+const mongoose = require('mongoose')
 const port = process.env.PORT || 8080
+
+const middlewares = require('./middlewares')
+
+const databaseUrl = process.env.DATABASE_URL || 'mongodb://0.0.0.0:27017/chatapp'
+mongoose.connect(databaseUrl, { 
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 
 const app = express()
 
