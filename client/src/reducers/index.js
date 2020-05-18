@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import messages from './messages'
 import auth from './auth'
+import chatroom from './chatroom'
 
 const rootReducer = combineReducers({
   messages,
-  auth
+  auth,
+  chatroom
 })
 
 export default rootReducer

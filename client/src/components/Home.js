@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 
-import { Link } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
 import '../css/home.css'
 
 export default class App extends Component {
+  state = {
+    chatroomLink: false
+  }
+
+  handleCreateChatroom = () => {
+    this.props.createChatroom()
+  }
+
   render() {
+    console.log(this.props.chatroom)
+    if (this.props.chatroom._id) {
+      return <Redirect to={`/${this.props.chatroom._id}`} />
+    }
     return (
       <div className="chatroom-links">
-        <Link to="/xao2l0a2">
-          Create a chatroom
-        </Link>
-        <Link to="/xao2l0a2">
-          Join a chatroom
-        </Link>
+        <button onClick={this.handleCreateChatroom}>Create a chatroom</button>
+        <button>Join a chatroom</button>
       </div>
     )
   }

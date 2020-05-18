@@ -8,11 +8,12 @@
   width: 300px;
   transform: translateX(-50%);
 }
-.chatroom-links a {
+.chatroom-links button {
   padding: 10px;
   text-align: center;
   background: #2196f3;
   color: #fff;
   text-decoration: none;
   margin: 5px 0;
+  border: none;
 }

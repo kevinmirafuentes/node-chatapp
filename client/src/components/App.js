@@ -7,7 +7,7 @@ import {
   Route,
 } from "react-router-dom"
 
-import Home from './Home'
+import Home from '../containers/Home'
 import Chatroom from '../containers/Chatroom'
 
 export default class App extends Component {

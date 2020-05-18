@@ -1,5 +1,17 @@
 import * as types from '../constants/ActionTypes'
 
+/*
+State form
+[
+  {
+    sender: {
+      name: 'john'
+    },
+    contents: 'Some message'
+  }
+]
+*/
+
 const messagesReducer = (state = [], action) => {
   switch (action.type) {
     case types.ADD_MESSAGE: 
