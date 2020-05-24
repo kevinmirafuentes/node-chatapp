@@ -2,22 +2,27 @@ import * as types from '../constants/ActionTypes'
 
 const chatroomReducer = (state = {}, action) => {
   switch (action.type) {
-    case types.OPEN_CHATROOM: 
+    case types.CREATE_CHATROOM_START: 
       return {
         ...state, 
-        isCreatingChatroom: true,
+        isCreatingChatroom: action.isCreatingChatroom,
       }
-    case types.OPEN_CHATROOM_SUCCESS: 
+    case types.CREATE_CHATROOM_SUCCESS: 
       return {
-        ...state, 
-        isCreatingChatroom: false,
+        ...state,
+        isCreatingChatroom: action.isCreatingChatroom,
         _id: action.chatroom._id
       }
-    case types.OPEN_CHATROOM_FAILED: 
+    case types.CREATE_CHATROOM_FAILED: 
       return {
         ...state, 
-        isCreatingChatroom: false,
+        isCreatingChatroom: action.isCreatingChatroom,
         _id: null
+      }
+    case types.LOAD_CHATROOM_SUCCESS: 
+      return {
+        ...state, 
+        _id: action.chatroom._id
       }
     default:
       return state

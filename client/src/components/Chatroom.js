@@ -5,6 +5,10 @@ import MessageBoard from '../containers/MessageBoard'
 import JoinChatroom from '../containers/JoinChatroom'
 
 export default class Chatroom extends Component {
+  componentDidMount() {
+    this.props.loadChatroom(this.props.match.params.chatroom)
+  }
+
   render() {
     if (!this.props.auth) {
       return (

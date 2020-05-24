@@ -14,7 +14,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.props.chatroom)
     if (this.props.chatroom._id) {
       return <Redirect to={`/${this.props.chatroom._id}`} />
     }

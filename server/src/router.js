@@ -16,5 +16,6 @@ router.post('/api/messages', messageController.createMessage)
 router.get('/api/users', userController.listUsers)
 router.post('/api/users', userController.createUser)
 router.post('/api/chatrooms', chatroomController.createChatroom)
+router.get('/api/chatrooms/:chatroom', chatroomController.getChatroom)
 
 module.exports = router;

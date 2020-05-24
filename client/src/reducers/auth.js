@@ -2,10 +2,8 @@ import * as types from '../constants/ActionTypes'
 
 const authReducer = (state = null, action) => {
   switch (action.type) {
-    case types.LOGIN: 
-      return state = { 
-        _id: 'aj539mx8jk3'
-      }
+    case types.SET_PERSONA: 
+      return state = action.persona
     default: 
       return state
   }

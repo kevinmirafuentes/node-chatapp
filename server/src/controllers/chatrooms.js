@@ -8,6 +8,14 @@ const createChatroom = (req, res, next) => {
   res.json(chatroom)
 }
 
+const getChatroom = (req, res, next) => {
+  Chatroom.findById(req.params.chatroom, (err, chatroom) => {
+    if (!err) res.json(chatroom)
+    else next(new Error(err))
+  })
+}
+
 module.exports = {
-  createChatroom
+  createChatroom,
+  getChatroom,
 }
