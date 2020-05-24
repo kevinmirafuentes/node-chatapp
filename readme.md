@@ -13,10 +13,11 @@ This is an excercise project using following technologies:
 
 ## Todo
 - [x] Server set up
-- [ ] DB model using Mongoose
-- [x] Client page layout
-- [ ] Create chatroom
-- [ ] Join chatroom
+- [x] DB model using Mongoose
+- [ ] Client page layout
+- [x] Create chatroom
+- [x] Join chatroom
 - [ ] List messages on chatroom
-- [ ] Create message
+- [x] Create message
+- [ ] Realtime message with socket.io
 - [ ] Chunk messages displayed
