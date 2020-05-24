@@ -61,6 +61,25 @@ export const joinChatroomFailed = () => ({
   isJoining: false
 })
 
+export const sendMessageStart = () => ({
+  type: types.SEND_MESSAGE_START
+})
+
+export const sendMessageSuccess = (message, index) => ({
+  type: types.SEND_MESSAGE_SUCCESS, 
+  message,
+  index
+})
+
+export const sendMessageFailed = () => ({
+  type: types.SEND_MESSAGE_FAILED
+})
+
+export const sortMessages = () => ({
+  type: types.SORT_MESSAGES
+})
+
+
 export const createChatroom = () => {
   return (dispatch, getState, axios) => {
     dispatch(createChatroomStart())
@@ -86,9 +105,8 @@ export const loadChatroom = (id) => {
 
 export const getChatroomPersona = (chatroom) => {
   return (dispatch, getState) => {
-    const persona = localStorage.getItem(`chatroom_${chatroom._id}`)
+    const persona = JSON.parse(localStorage.getItem(`chatroom_${chatroom._id}`))
     dispatch(setPersona(persona))
-    console.log('loading persona', persona)
   }
 }
 
@@ -103,9 +121,42 @@ export const joinChatroom = (chatroom, name) => {
     .then(res => res.data)
     .then(data => {
       dispatch(joinChatroomSuccess(data))
-      localStorage.setItem(`chatroom_${chatroom._id}`, data)
+      localStorage.setItem(`chatroom_${chatroom._id}`, JSON.stringify(data))
       dispatch(getChatroomPersona(chatroom))
     })
     .catch(err => dispatch(joinChatroomFailed(err)))
+  }
+}
+
+export const runMessageQueue = () => {
+  return (dispatch, getState, axios) => {
+    const { messages } = getState()
+    if (messages.isSendingMessage) 
+      return false
+
+    const queue = messages.messages
+                  .map((message, index) => ({index, message}))
+                  .filter((data) => !data.message._id)
+
+    if (queue.length < 1) 
+      return false
+
+    const subject = {...queue[0]}
+
+    dispatch(sendMessageStart())
+
+    const payload = {
+      chatroom_id: subject.message.chatroom_id,
+      user_id: subject.message.sender._id,
+      contents: subject.message.contents,
+    }
+
+    axios.post(`${process.env.REACT_APP_SERVER}/api/messages`, payload)
+    .then(response => response.data)
+    .then(data => {
+      subject.message._id = data._id
+      dispatch(sendMessageSuccess(subject.message, subject.index))
+      dispatch(runMessageQueue())
+    })
   }
 }

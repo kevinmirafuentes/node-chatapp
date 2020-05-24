@@ -8,3 +8,6 @@ Pages
   - THE chatroom.
   - When a user enters, the page checks for user session.
   - If a user does not have a session, the create user form will load up.
+
+
+TODO

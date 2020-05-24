@@ -7,4 +7,10 @@ const mapStateToProps = (state) => {
   return { messages }
 }
 
-export default connect(mapStateToProps, { getMessages })(MessageBoard)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getMessages: () => dispatch(getMessages()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageBoard)

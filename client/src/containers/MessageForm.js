@@ -1,10 +1,18 @@
 import { connect } from 'react-redux'
 import MessageForm from '../components/MessageForm'
-import { addMessage } from '../actions'
+import { runMessageQueue, addMessage } from '../actions'
+
+const mapStateToProps = (state) => {
+  const {auth} = state
+  return { 
+    auth
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     addMessage: (message) => dispatch(addMessage(message)),
+    runMessageQueue: () => dispatch(runMessageQueue()),
   }
 }
-export default connect(null, mapDispatchToProps)(MessageForm)
+export default connect(mapStateToProps, mapDispatchToProps)(MessageForm)

@@ -10,16 +10,21 @@ export default class MessageBoard extends Component {
     this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   }
   
-  componentDidUpdate() {
+  componentDidUpdate = () => {
     this.scrollToBottom();
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.props.getMessages()
     this.scrollToBottom();
   }
+  
   render() {
-    const messages = this.props.messages.map((message, key) => <Message key={key} message={message}></Message>)
+    console.log(this.props.messages)
+    const messages = this.props.messages.messages.map((message, key) => (
+      <Message key={key} message={message}></Message>
+    ))
+
     return (
       <section className="messages-board">
         <div className="messages-board-inner">

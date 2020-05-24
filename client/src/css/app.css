@@ -26,11 +26,12 @@
 .message-body {
   width: 100%;
   padding: 10px;
+  white-space: pre;
 }
 .message-form-input {
   width: 100%;
 }
-.message-form-input input {
+.message-form-input textarea {
   width: 100%;
   height: 100%;
   outline: none;
@@ -51,4 +52,16 @@
   text-transform: uppercase;
   font-size: 14px;
   color: #fff;
+}
+
+.pulsate {
+  animation: pulse 3s infinite;
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
